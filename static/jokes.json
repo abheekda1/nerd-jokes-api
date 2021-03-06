@@ -1,71 +1,81 @@
-{
-  "jokes": {
-    "general": {
-      "type1": [
-        {
-          "title": "",
-          "oneliner": "Yesterday, a clown held the door open for me. It was such a nice jester!"
-        },
-        {
-          "title": "",
-          "oneliner": "I asked my French friend if she likes to play video games. She said, \"Wii.\""
-        }
-      ],
-      "type2": [
-        {
-          "title": "",
-          "setup": "How much money does a pirate pay for corn?",
-          "punchline": "A buccaneer."
-        },
-        {
-          "title": "",
-          "setup": "Which country's capital has the fastest-growing population?",
-          "punchline": "Ireland. Every day it's Dublin."
-        }
-      ]
-    },
-    "science": {
-      "type1": [
-        {
-          "title": "",
-          "oneliner": "A science teacher tells his class, \"Oxygen is a must for breathing and life. It was discovered in 1773.\" A blonde student responds, \"Thank God I was born after 1773! Otherwise I would have died without it.\""
-        },
-        {
-          "title": "",
-          "oneliner": "I'm reading a book about helium. I just can't seem to put it down!"
-        },
-        {
-          "title": "",
-          "oneliner": "Math puns are the first sine of madness."
-        }
-      ],
-      "type2": [
-        {
-          "title": "",
-          "setup": " How do astronomers organize a party?",
-          "punchline": "They planet."
-        },
-        {
-          "title": "",
-          "setup": "Why can't you trust an atom?",
-          "punchline": "They make up everything!"
-        },
-        {
-          "title": "",
-          "setup": "Why don't ants get sick?",
-          "punchline": "Becuase they have little Anty Bodies!"
-        },
-        {
-          "title": "",
-          "setup": "What did one tectonic plate say when he bumped into another?",
-          "punchline": "Sorry! My Fault."
-        },
-        {
-          "title": "",
-          "setup": "How did the thermometer insult the graduated cylinder?",
-          "punchline": "She said, \"You may have graduated, but I have more degrees.\""
-        }
-      ]
-    }
+[
+  {
+    "subject": "general",
+    "isOneliner": true,
+    "title": "",
+    "oneliner": "Yesterday, a clown held the door open for me. It was such a nice jester!"
+  },
+  {
+    "subject": "general",
+    "isOneliner": true,
+    "title": "",
+    "oneliner": "I asked my French friend if she likes to play video games. She said, \"Wii.\""
+  },
+  {
+    "subject": "general",
+    "isOneliner": false,
+    "title": "",
+    "setup": "How much money does a pirate pay for corn?",
+    "punchline": "A buccaneer."
+  },
+  {
+    "subject": "general",
+    "isOneliner": false,
+    "title": "",
+    "setup": "Which country's capital has the fastest-growing population?",
+    "punchline": "Ireland. Every day it's Dublin."
+  },
+  {
+    "subject": "science",
+    "isOneliner": true,
+    "title": "",
+    "oneliner": "A science teacher tells his class, \"Oxygen is a must for breathing and life. It was discovered in 1773.\" A blonde student responds, \"Thank God I was born after 1773! Otherwise I would have died without it.\""
+  },
+  {
+    "subject": "science",
+    "isOneliner": true,
+    "title": "",
+    "oneliner": "I'm reading a book about helium. I just can't seem to put it down!"
+  },
+  {
+    "subject": "science",
+    "isOneliner": true,
+    "title": "",
+    "oneliner": "Math puns are the first sine of madness."
+  },
+  {
+    "subject": "science",
+    "isOneliner": false,
+    "title": "",
+    "setup": " How do astronomers organize a party?",
+    "punchline": "They planet."
+  },
+  {
+    "subject": "science",
+    "isOneliner": false,
+    "title": "",
+    "setup": "Why can't you trust an atom?",
+    "punchline": "They make up everything!"
+  },
+  {
+    "subject": "science",
+    "isOneliner": false,
+    "title": "",
+    "setup": "Why don't ants get sick?",
+    "punchline": "Becuase they have little Anty Bodies!"
+  },
+  {
+    "subject": "science",
+    "isOneliner": false,
+    "title": "",
+    "setup": "What did one tectonic plate say when he bumped into another?",
+    "punchline": "Sorry! My Fault."
+  },
+  {
+    "subject": "science",
+    "isOneliner": false,
+    "title": "",
+    "setup": "How did the thermometer insult the graduated cylinder?",
+    "punchline": "She said, \"You may have graduated, but I have more degrees.\""
   }
-}
+]
