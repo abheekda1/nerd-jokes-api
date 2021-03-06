@@ -7,6 +7,8 @@ import (
 	"log"
 	"math/rand"
 	"net/http"
+	"os"
+	"strings"
 	"time"
 
 	"github.com/gorilla/mux"
@@ -111,13 +113,56 @@ func randomJokeBySubject(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(jokesBySubject[rand.Intn(len(jokesBySubject))])
 }
 
+func addJoke(w http.ResponseWriter, r *http.Request) {
+	reqBody, _ := ioutil.ReadAll(r.Body)
+
+	jokesJSON, err := ioutil.ReadFile("static/jokes.json")
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+
+	type Joke struct {
+		APIKey    string
+		Subject   string
+		Title     string
+		Oneliner  string
+		Setup     string
+		Punchline string
+	}
+
+	var joke Joke
+	json.Unmarshal(reqBody, &joke)
+
+	if joke.APIKey != os.Args[1] {
+		fmt.Fprintf(w, "Unauthorized")
+		return
+	}
+
+	jokesJSONString := strings.TrimSuffix(strings.TrimSuffix(strings.TrimSuffix(string(jokesJSON), "\n"), "]"), "\n") + ",\n  " + fmt.Sprintf("{\n    \"subject\": \"%v\", \n    \"title\": \"%v\", \n    \"oneliner\": \"%v\", \n    \"setup\": \"%v\", \n    \"punchline\": \"%v\"\n  }\n]", joke.Subject, joke.Title, joke.Oneliner, joke.Setup, joke.Punchline)
+
+	os.Remove("static/jokes.json")
+
+	f, err := os.OpenFile("static/jokes.json", os.O_APPEND|os.O_WRONLY|os.O_CREATE, 0600)
+	if err != nil {
+		panic(err)
+	}
+
+	defer f.Close()
+
+	if _, err = f.WriteString(jokesJSONString); err != nil {
+		panic(err)
+	}
+}
+
 func handleRequests() {
 	router := mux.NewRouter().StrictSlash(true)
 	router.Handle("/", http.FileServer(http.Dir("./static")))
-	router.HandleFunc("/jokes", allJokes)
-	router.HandleFunc("/jokes/random", randomJoke)
-	router.HandleFunc("/jokes/{subject}", allJokesBySubject)
-	router.HandleFunc("/jokes/random/{subject}", randomJokeBySubject)
+	router.HandleFunc("/jokes", allJokes).Methods("GET")
+	router.HandleFunc("/jokes/random", randomJoke).Methods("GET")
+	router.HandleFunc("/jokes/{subject}", allJokesBySubject).Methods("GET")
+	router.HandleFunc("/jokes/random/{subject}", randomJokeBySubject).Methods("GET")
+	router.HandleFunc("/addJoke", addJoke).Methods("POST")
 	log.Fatal(http.ListenAndServe(":3587", router))
 }
 
