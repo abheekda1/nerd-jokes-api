@@ -15,7 +15,7 @@ func Marshal(input interface{}) ([]byte, error) {
 }
 
 func generalJokes(w http.ResponseWriter, r *http.Request) {
-	jokesJSON, err := ioutil.ReadFile("jokes.json")
+	jokesJSON, err := ioutil.ReadFile("static/jokes.json")
 	if err != nil {
 		fmt.Println(err)
 	}
@@ -65,7 +65,7 @@ func generalJokes(w http.ResponseWriter, r *http.Request) {
 }
 
 func scienceJokes(w http.ResponseWriter, r *http.Request) {
-	jokesJSON, err := ioutil.ReadFile("jokes.json")
+	jokesJSON, err := ioutil.ReadFile("static/jokes.json")
 	if err != nil {
 		fmt.Println(err)
 	}
