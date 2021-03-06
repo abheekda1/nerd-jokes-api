@@ -115,6 +115,7 @@ func scienceJokes(w http.ResponseWriter, r *http.Request) {
 }
 
 func handleRequests() {
+	http.Handle("/", http.FileServer(http.Dir("./static")))
 	http.HandleFunc("/jokes/random", generalJokes)
 	http.HandleFunc("/jokes/science/random", scienceJokes)
 	log.Fatal(http.ListenAndServe(":3587", nil))
