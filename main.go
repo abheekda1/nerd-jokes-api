@@ -7,6 +7,7 @@ import (
 	"log"
 	"math/rand"
 	"net/http"
+	"strings"
 	"time"
 
 	"github.com/gorilla/mux"
@@ -14,169 +15,6 @@ import (
 
 func Marshal(input interface{}) ([]byte, error) {
 	return json.Marshal(input)
-}
-
-/*func generalJokes(w http.ResponseWriter, r *http.Request) {
-	jokesJSON, err := ioutil.ReadFile("static/jokes.json")
-	if err != nil {
-		fmt.Println(err)
-	}
-
-	type Type1 struct {
-		Title    string
-		Oneliner string
-	}
-
-	type Type2 struct {
-		Title     string
-		Setup     string
-		Punchline string
-	}
-
-	type General struct {
-		Type1 []Type1
-		Type2 []Type2
-	}
-
-	type Joke struct {
-		General General
-	}
-
-	type AllJokes struct {
-		Jokes Joke
-	}
-
-	var joke AllJokes
-	json.Unmarshal([]byte(jokesJSON), &joke)
-	jokeType := [2]string{"Type1", "Type2"}
-	jokeTypeIndex := jokeType[rand.Intn(2)]
-
-	if jokeTypeIndex == "Type1" {
-		index := rand.Intn(len(joke.Jokes.General.Type1))
-		randomJoke, _ := Marshal(joke.Jokes.General.Type1[index])
-		fmt.Fprintf(w, string(randomJoke))
-	}
-
-	if jokeTypeIndex == "Type2" {
-		index := rand.Intn(len(joke.Jokes.General.Type2))
-		randomJoke, _ := Marshal(joke.Jokes.General.Type2[index])
-		fmt.Fprintf(w, string(randomJoke))
-	}
-
-	fmt.Println("Endpoint Hit: General Jokes Page")
-}
-
-func scienceJokes(w http.ResponseWriter, r *http.Request) {
-	jokesJSON, err := ioutil.ReadFile("static/jokes.json")
-	if err != nil {
-		fmt.Println(err)
-	}
-
-	type Type1 struct {
-		Title    string
-		Oneliner string
-	}
-
-	type Type2 struct {
-		Title     string
-		Setup     string
-		Punchline string
-	}
-
-	type Science struct {
-		Type1 []Type1
-		Type2 []Type2
-	}
-
-	type Joke struct {
-		Science Science
-	}
-
-	type AllJokes struct {
-		Jokes Joke
-	}
-
-	var joke AllJokes
-	json.Unmarshal([]byte(jokesJSON), &joke)
-	jokeType := [2]string{"Type1", "Type2"}
-	jokeTypeIndex := jokeType[rand.Intn(2)]
-
-	if jokeTypeIndex == "Type1" {
-		index := rand.Intn(len(joke.Jokes.Science.Type1))
-		randomJoke, _ := Marshal(joke.Jokes.Science.Type1[index])
-		fmt.Fprintf(w, string(randomJoke))
-	}
-
-	if jokeTypeIndex == "Type2" {
-		index := rand.Intn(len(joke.Jokes.Science.Type2))
-		randomJoke, _ := Marshal(joke.Jokes.Science.Type2[index])
-		fmt.Fprintf(w, string(randomJoke))
-	}
-
-	fmt.Println("Endpoint Hit: Science Jokes Page")
-}*/
-
-func allJokesBySubject(w http.ResponseWriter, r *http.Request) {
-	vars := mux.Vars(r)
-	key := vars["subject"]
-
-	jokesJSON, err := ioutil.ReadFile("static/jokes.json")
-	if err != nil {
-		fmt.Println(err)
-		return
-	}
-
-	type Joke struct {
-		Subject    string
-		isOneliner bool
-		Title      string
-		Oneliner   string
-		Setup      string
-		Punchline  string
-	}
-
-	var joke []Joke
-	json.Unmarshal([]byte(jokesJSON), &joke)
-
-	for _, subJoke := range joke {
-		if subJoke.Subject == key {
-			fmt.Fprintf(w, "\"Subject\": \"%v\", \"Title\": \"%v\", \"Oneliner\": \"%v\", \"Setup\": \"%v\", \"Punchline\": \"%v\"", subJoke.Subject, subJoke.Title, subJoke.Oneliner, subJoke.Setup, subJoke.Punchline)
-		}
-	}
-}
-
-func randomJokeBySubject(w http.ResponseWriter, r *http.Request) {
-	vars := mux.Vars(r)
-	key := vars["subject"]
-
-	jokesJSON, err := ioutil.ReadFile("static/jokes.json")
-	if err != nil {
-		fmt.Println(err)
-		return
-	}
-
-	type Joke struct {
-		Subject    string
-		isOneliner bool
-		Title      string
-		Oneliner   string
-		Setup      string
-		Punchline  string
-	}
-
-	var joke []Joke
-	json.Unmarshal([]byte(jokesJSON), &joke)
-
-	var jokesBySubject []string
-
-	for _, subJoke := range joke {
-		if subJoke.Subject == key {
-			jokesBySubject = append(jokesBySubject, fmt.Sprintf("\"Subject\": \"%v\", \"Title\": \"%v\", \"Oneliner\": \"%v\", \"Setup\": \"%v\", \"Punchline\": \"%v\"", subJoke.Subject, subJoke.Title, subJoke.Oneliner, subJoke.Setup, subJoke.Punchline))
-		}
-	}
-
-	fmt.Fprintf(w, jokesBySubject[rand.Intn(len(jokesBySubject))])
-
 }
 
 func allJokes(w http.ResponseWriter, r *http.Request) {
@@ -207,11 +45,83 @@ func randomJoke(w http.ResponseWriter, r *http.Request) {
 	var joke []Joke
 	json.Unmarshal([]byte(jokesJSON), &joke)
 
-	index := rand.Intn(len(joke))
-	randomJoke, _ := Marshal(joke[index])
-	fmt.Fprintf(w, string(randomJoke))
+	var jokesBySubject []string
 
-	fmt.Println("Endpoint Hit: Science Jokes Page")
+	for _, subJoke := range joke {
+		jokesBySubject = append(jokesBySubject, fmt.Sprintf("{\n \"Subject\": \"%v\", \n \"Title\": \"%v\", \n \"Oneliner\": \"%v\", \n \"Setup\": \"%v\", \n \"Punchline\": \"%v\"\n}", subJoke.Subject, subJoke.Title, subJoke.Oneliner, subJoke.Setup, subJoke.Punchline))
+	}
+
+	fmt.Fprintf(w, jokesBySubject[rand.Intn(len(jokesBySubject))])
+
+	/*index := rand.Intn(len(joke))
+	randomJoke, _ := Marshal(joke[index])
+	fmt.Fprintf(w, string(randomJoke))*/
+}
+
+func allJokesBySubject(w http.ResponseWriter, r *http.Request) {
+	vars := mux.Vars(r)
+	key := vars["subject"]
+
+	jokesJSON, err := ioutil.ReadFile("static/jokes.json")
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+
+	type Joke struct {
+		Subject    string
+		isOneliner bool
+		Title      string
+		Oneliner   string
+		Setup      string
+		Punchline  string
+	}
+
+	var joke []Joke
+	json.Unmarshal([]byte(jokesJSON), &joke)
+
+	var jokesBySubject string
+
+	for _, subJoke := range joke {
+		if subJoke.Subject == key {
+			jokesBySubject += fmt.Sprintf("\n {\n  \"Subject\": \"%v\", \n  \"Title\": \"%v\", \n  \"Oneliner\": \"%v\", \n  \"Setup\": \"%v\", \n  \"Punchline\": \"%v\"\n },", subJoke.Subject, subJoke.Title, subJoke.Oneliner, subJoke.Setup, subJoke.Punchline)
+		}
+	}
+	fmt.Fprintf(w, "["+strings.TrimSuffix(jokesBySubject, ",")+"\n]")
+}
+
+func randomJokeBySubject(w http.ResponseWriter, r *http.Request) {
+	vars := mux.Vars(r)
+	key := vars["subject"]
+
+	jokesJSON, err := ioutil.ReadFile("static/jokes.json")
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+
+	type Joke struct {
+		Subject    string
+		isOneliner bool
+		Title      string
+		Oneliner   string
+		Setup      string
+		Punchline  string
+	}
+
+	var joke []Joke
+	json.Unmarshal([]byte(jokesJSON), &joke)
+
+	var jokesBySubject []string
+
+	for _, subJoke := range joke {
+		if subJoke.Subject == key {
+			jokesBySubject = append(jokesBySubject, fmt.Sprintf("{\n \"Subject\": \"%v\", \n \"Title\": \"%v\", \n \"Oneliner\": \"%v\", \n \"Setup\": \"%v\", \n \"Punchline\": \"%v\"\n}", subJoke.Subject, subJoke.Title, subJoke.Oneliner, subJoke.Setup, subJoke.Punchline))
+		}
+	}
+
+	fmt.Fprintf(w, jokesBySubject[rand.Intn(len(jokesBySubject))])
+
 }
 
 func handleRequests() {
