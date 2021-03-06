@@ -33,6 +33,10 @@
         {
           "title": "",
           "oneliner": "I'm reading a book about helium. I just can't seem to put it down!"
+        },
+        {
+          "title": "",
+          "oneliner": "Math puns are the first sine of madness."
         }
       ],
       "type2": [
@@ -45,6 +49,21 @@
           "title": "",
           "setup": "Why can't you trust an atom?",
           "punchline": "They make up everything!"
+        },
+        {
+          "title": "",
+          "setup": "Why don't ants get sick?",
+          "punchline": "Becuase they have little Anty Bodies!"
+        },
+        {
+          "title": "",
+          "setup": "What did one tectonic plate say when he bumped into another?",
+          "punchline": "Sorry! My Fault."
+        },
+        {
+          "title": "",
+          "setup": "How did the thermometer insult the graduated cylinder?",
+          "punchline": "She said, \"You may have graduated, but I have more degrees.\""
         }
       ]
     }
