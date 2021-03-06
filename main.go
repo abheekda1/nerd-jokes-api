@@ -61,7 +61,7 @@ func generalJokes(w http.ResponseWriter, r *http.Request) {
 		fmt.Fprintf(w, string(randomJoke))
 	}
 
-	fmt.Println("Endpoint Hit: Jokes Page")
+	fmt.Println("Endpoint Hit: General Jokes Page")
 }
 
 func scienceJokes(w http.ResponseWriter, r *http.Request) {
@@ -111,7 +111,7 @@ func scienceJokes(w http.ResponseWriter, r *http.Request) {
 		fmt.Fprintf(w, string(randomJoke))
 	}
 
-	fmt.Println("Endpoint Hit: Jokes Page")
+	fmt.Println("Endpoint Hit: Science Jokes Page")
 }
 
 func handleRequests() {
