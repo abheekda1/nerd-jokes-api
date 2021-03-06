@@ -7,7 +7,6 @@ import (
 	"log"
 	"math/rand"
 	"net/http"
-	"strings"
 	"time"
 
 	"github.com/gorilla/mux"
@@ -45,17 +44,7 @@ func randomJoke(w http.ResponseWriter, r *http.Request) {
 	var joke []Joke
 	json.Unmarshal([]byte(jokesJSON), &joke)
 
-	var jokesBySubject []string
-
-	for _, subJoke := range joke {
-		jokesBySubject = append(jokesBySubject, fmt.Sprintf("{\n \"Subject\": \"%v\", \n \"Title\": \"%v\", \n \"Oneliner\": \"%v\", \n \"Setup\": \"%v\", \n \"Punchline\": \"%v\"\n}", subJoke.Subject, subJoke.Title, subJoke.Oneliner, subJoke.Setup, subJoke.Punchline))
-	}
-
-	fmt.Fprintf(w, jokesBySubject[rand.Intn(len(jokesBySubject))])
-
-	/*index := rand.Intn(len(joke))
-	randomJoke, _ := Marshal(joke[index])
-	fmt.Fprintf(w, string(randomJoke))*/
+	json.NewEncoder(w).Encode(joke[rand.Intn(len(joke))])
 }
 
 func allJokesBySubject(w http.ResponseWriter, r *http.Request) {
@@ -80,14 +69,14 @@ func allJokesBySubject(w http.ResponseWriter, r *http.Request) {
 	var joke []Joke
 	json.Unmarshal([]byte(jokesJSON), &joke)
 
-	var jokesBySubject string
+	var jokesBySubject []Joke
 
 	for _, subJoke := range joke {
 		if subJoke.Subject == key {
-			jokesBySubject += fmt.Sprintf("\n {\n  \"Subject\": \"%v\", \n  \"Title\": \"%v\", \n  \"Oneliner\": \"%v\", \n  \"Setup\": \"%v\", \n  \"Punchline\": \"%v\"\n },", subJoke.Subject, subJoke.Title, subJoke.Oneliner, subJoke.Setup, subJoke.Punchline)
+			jokesBySubject = append(jokesBySubject, subJoke)
 		}
 	}
-	fmt.Fprintf(w, "["+strings.TrimSuffix(jokesBySubject, ",")+"\n]")
+	json.NewEncoder(w).Encode(jokesBySubject)
 }
 
 func randomJokeBySubject(w http.ResponseWriter, r *http.Request) {
@@ -112,16 +101,14 @@ func randomJokeBySubject(w http.ResponseWriter, r *http.Request) {
 	var joke []Joke
 	json.Unmarshal([]byte(jokesJSON), &joke)
 
-	var jokesBySubject []string
+	var jokesBySubject []Joke
 
 	for _, subJoke := range joke {
 		if subJoke.Subject == key {
-			jokesBySubject = append(jokesBySubject, fmt.Sprintf("{\n \"Subject\": \"%v\", \n \"Title\": \"%v\", \n \"Oneliner\": \"%v\", \n \"Setup\": \"%v\", \n \"Punchline\": \"%v\"\n}", subJoke.Subject, subJoke.Title, subJoke.Oneliner, subJoke.Setup, subJoke.Punchline))
+			jokesBySubject = append(jokesBySubject, subJoke)
 		}
 	}
-
-	fmt.Fprintf(w, jokesBySubject[rand.Intn(len(jokesBySubject))])
-
+	json.NewEncoder(w).Encode(jokesBySubject[rand.Intn(len(jokesBySubject))])
 }
 
 func handleRequests() {
