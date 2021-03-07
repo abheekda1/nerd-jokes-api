@@ -62,7 +62,7 @@
     "isOneliner": false,
     "title": "",
     "setup": "Why don't ants get sick?",
-    "punchline": "Becuase they have little Anty Bodies!"
+    "punchline": "Because they have little Anty Bodies!"
   },
   {
     "subject": "science",
@@ -77,5 +77,152 @@
     "title": "",
     "setup": "How did the thermometer insult the graduated cylinder?",
     "punchline": "She said, \"You may have graduated, but I have more degrees.\""
+  },
+  {
+    "subject": "science", 
+    "title": "", 
+    "oneliner": "Want to hear a joke about potassium? K.", 
+    "setup": "", 
+    "punchline": ""
+  },
+  {
+    "subject": "science", 
+    "title": "", 
+    "oneliner": "", 
+    "setup": "What do you do with a sick scientist?", 
+    "punchline": "Well if you can't helium and you can't curium then you might as well barium."
+  },
+  {
+    "subject": "science", 
+    "title": "", 
+    "oneliner": "", 
+    "setup": "Did you hear? Oxygen went on a date with potassium.", 
+    "punchline": "It went OK."
+  },
+  {
+    "subject": "science", 
+    "title": "", 
+    "oneliner": "If the Silver Surfer and Iron Man teamed up, they'd be alloys.", 
+    "setup": "", 
+    "punchline": ""
+  },
+  {
+    "subject": "science", 
+    "title": "", 
+    "oneliner": "The optimist sees the glass half full. The pessimist sees the glass half empty. The chemist sees the glass completely full, half with liquid and half with air.", 
+    "setup": "", 
+    "punchline": ""
+  },
+  {
+    "subject": "science", 
+    "title": "", 
+    "oneliner": "", 
+    "setup": "If you're not part of the solution,", 
+    "punchline": "you're part of the precipitate."
+  },
+  {
+    "subject": "science", 
+    "title": "", 
+    "oneliner": "", 
+    "setup": "A photon checks into a hotel and is asked if he needs any help with his luggage.", 
+    "punchline": "He says, \"No thanks, I'm traveling light.\""
+  },
+  {
+    "subject": "science", 
+    "title": "", 
+    "oneliner": "Organic chemistry is difficult. Those who study it have alkynes of trouble.", 
+    "setup": "", 
+    "punchline": ""
+  },
+  {
+    "subject": "science", 
+    "title": "", 
+    "oneliner": "", 
+    "setup": "Did you hear about the man who got cooled to absolute zero?", 
+    "punchline": "He's 0K now."
+  },
+  {
+    "subject": "science", 
+    "title": "", 
+    "oneliner": "I had to make these bad chemistry jokes because all the good ones Argon.", 
+    "setup": "", 
+    "punchline": ""
+  },
+  {
+    "subject": "science", 
+    "title": "", 
+    "oneliner": "Biology is the only science in which multiplication is the same thing as division.", 
+    "setup": "", 
+    "punchline": ""
+  },
+  {
+    "subject": "science", 
+    "title": "", 
+    "oneliner": "", 
+    "setup": "What did the stamen say to the pistil?", 
+    "punchline": "I like your style"
+  },
+  {
+    "subject": "general", 
+    "title": "", 
+    "oneliner": "", 
+    "setup": "What happens when you mess up at ninja church?", 
+    "punchline": "The nun chucks you out."
+  },
+  {
+    "subject": "general", 
+    "title": "", 
+    "oneliner": "", 
+    "setup": "What did Yoda say when he saw himself in 4K?", 
+    "punchline": "HDMI?"
+  },
+  {
+    "subject": "general", 
+    "title": "", 
+    "oneliner": "", 
+    "setup": "As I suspected, someone has been adding soil to my garden.", 
+    "punchline": "*The plot thickens.*"
+  },
+  {
+    "subject": "general", 
+    "title": "", 
+    "oneliner": "", 
+    "setup": "I dreamt last night that I was swimming in an ocean full of orange soda. Then I woke up...", 
+    "punchline": "..and realized it was just a Fanta sea."
+  },
+  {
+    "subject": "general", 
+    "title": "", 
+    "oneliner": "", 
+    "setup": "My friend claims that he “accidentally” glued himself to his autobiography, but I don’t believe him.", 
+    "punchline": "But that’s his story, and he’s sticking to it."
+  },
+  {
+    "subject": "general", 
+    "title": "", 
+    "oneliner": "", 
+    "setup": "Whats the leading cause of dry skin?", 
+    "punchline": "Towels"
+  },
+  {
+    "subject": "general", 
+    "title": "", 
+    "oneliner": "", 
+    "setup": "What’s the best thing about Switzerland?", 
+    "punchline": "I don't know, but the flag is a big plus."
+  },
+  {
+    "subject": "science", 
+    "title": "", 
+    "oneliner": "", 
+    "setup": "Did you hear about the mathematician who’s afraid of negative numbers?", 
+    "punchline": "He'll stop at nothing to avoid them."
+  },
+  {
+    "subject": "general", 
+    "title": "", 
+    "oneliner": "", 
+    "setup": "Why do we tell actors to 'break a leg'?", 
+    "punchline": "Because every play has a cast."
   }
 ]
