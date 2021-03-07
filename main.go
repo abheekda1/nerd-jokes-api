@@ -46,6 +46,7 @@ func randomJoke(w http.ResponseWriter, r *http.Request) {
 	var joke []Joke
 	json.Unmarshal([]byte(jokesJSON), &joke)
 
+	w.Header().Set("Content-Type", "application/json")
 	json.NewEncoder(w).Encode(joke[rand.Intn(len(joke))])
 }
 
