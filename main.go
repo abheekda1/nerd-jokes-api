@@ -24,6 +24,7 @@ func allJokes(w http.ResponseWriter, r *http.Request) {
 		fmt.Println(err)
 		return
 	}
+	w.Header().Set("Content-Type", "application/json")
 	fmt.Fprintf(w, string(jokesJSON))
 }
 
