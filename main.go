@@ -46,6 +46,7 @@ func randomJoke(w http.ResponseWriter, r *http.Request) {
 	var joke []Joke
 	json.Unmarshal([]byte(jokesJSON), &joke)
 
+	w.Header().Set("Content-Type", "application/json")
 	json.NewEncoder(w).Encode(joke[rand.Intn(len(joke))])
 }
 
@@ -78,6 +79,7 @@ func allJokesBySubject(w http.ResponseWriter, r *http.Request) {
 			jokesBySubject = append(jokesBySubject, subJoke)
 		}
 	}
+	w.Header().Set("Content-Type", "application/json")
 	json.NewEncoder(w).Encode(jokesBySubject)
 }
 
@@ -110,6 +112,7 @@ func randomJokeBySubject(w http.ResponseWriter, r *http.Request) {
 			jokesBySubject = append(jokesBySubject, subJoke)
 		}
 	}
+	w.Header().Set("Content-Type", "application/json")
 	json.NewEncoder(w).Encode(jokesBySubject[rand.Intn(len(jokesBySubject))])
 }
 
