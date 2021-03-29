@@ -29,12 +29,6 @@
     "subject": "science",
     "isOneliner": true,
     "title": "",
-    "oneliner": "A science teacher tells his class, \"Oxygen is a must for breathing and life. It was discovered in 1773.\" A blonde student responds, \"Thank God I was born after 1773! Otherwise I would have died without it.\""
-  },
-  {
-    "subject": "science",
-    "isOneliner": true,
-    "title": "",
     "oneliner": "I'm reading a book about helium. I just can't seem to put it down!"
   },
   {
@@ -224,5 +218,180 @@
     "oneliner": "", 
     "setup": "Why do we tell actors to 'break a leg'?", 
     "punchline": "Because every play has a cast."
+  },
+  {
+    "subject": "science", 
+    "title": "It’s all beef to me", 
+    "oneliner": "", 
+    "setup": "Why does a burger have less energy than a steak?", 
+    "punchline": "Why does a burger have less energy than a steak?"
+  },
+  {
+    "subject": "general", 
+    "title": "", 
+    "oneliner": "‘I’m sorry’ and ‘I apologize’ mean the same thing. Except at a funeral.", 
+    "setup": "", 
+    "punchline": ""
+  },
+  {
+    "subject": "general", 
+    "title": "", 
+    "oneliner": "", 
+    "setup": "Why don’t cannibals eat clowns?", 
+    "punchline": "Because they taste funny."
+  },
+  {
+    "subject": "general", 
+    "title": "", 
+    "oneliner": "If at first you don’t succeed, then skydiving definitely isn’t for you.", 
+    "setup": "", 
+    "punchline": ""
+  },
+  {
+    "subject": "general", 
+    "title": "", 
+    "oneliner": "", 
+    "setup": "Why did Adele cross the road?", 
+    "punchline": "To say hello from the other side."
+  },
+  {
+    "subject": "general", 
+    "title": "", 
+    "oneliner": "", 
+    "setup": "To the guy who invented zero,", 
+    "punchline": "thanks for nothing"
+  },
+  {
+    "subject": "general", 
+    "title": "", 
+    "oneliner": "The Middle Ages were called the Dark Ages because there were too many knights.", 
+    "setup": "", 
+    "punchline": ""
+  },
+  {
+    "subject": "general", 
+    "title": "", 
+    "oneliner": "", 
+    "setup": "I can’t believe I got fired from the calendar factory.", 
+    "punchline": "All I did was take a day off!"
+  },
+  {
+    "subject": "general", 
+    "title": "", 
+    "oneliner": "", 
+    "setup": "England doesn't have a kidney bank.", 
+    "punchline": "But it does have a Liverpool."
+  },
+  {
+    "subject": "general", 
+    "title": "", 
+    "oneliner": "", 
+    "setup": "What are windmills’ favorite genre of music?", 
+    "punchline": "They’re big metal fans."
+  },
+  {
+    "subject": "general", 
+    "title": "", 
+    "oneliner": "", 
+    "setup": "The machine at the coin factory just suddenly stopped working.", 
+    "punchline": "It doesn't make any cents."
+  },
+  {
+    "subject": "general", 
+    "title": "", 
+    "oneliner": "", 
+    "setup": "I was going to make myself a belt made out of watches,", 
+    "punchline": "but I realized it was a waist of time."
+  },
+  {
+    "subject": "science", 
+    "title": "", 
+    "oneliner": "", 
+    "setup": "An atom loses an electron…", 
+    "punchline": "it says, 'Man, I really gotta keep an ion them.'"
+  },
+  {
+    "subject": "general", 
+    "title": "", 
+    "oneliner": "", 
+    "setup": "Light travels faster than sound.", 
+    "punchline": "That's why some people appear bright until you hear them speak."
+  },
+  {
+    "subject": "general", 
+    "title": "", 
+    "oneliner": "", 
+    "setup": "Light travels faster than sound.", 
+    "punchline": "'I have a split personality,' said Tom, being frank."
+  },
+  {
+    "subject": "general", 
+    "title": "", 
+    "oneliner": "", 
+    "setup": "How do you make holy water?", 
+    "punchline": "You boil the hell out of it."
+  },
+  {
+    "subject": "general", 
+    "title": "", 
+    "oneliner": "", 
+    "setup": "When life gives you melons,", 
+    "punchline": "you're dyslexic."
+  },
+  {
+    "subject": "general", 
+    "title": "", 
+    "oneliner": "", 
+    "setup": "Will glass coffins be a success?", 
+    "punchline": "Remains to be seen."
+  },
+  {
+    "subject": "general", 
+    "title": "", 
+    "oneliner": "", 
+    "setup": "I went to buy some camouflage trousers yesterday,", 
+    "punchline": "but couldn't find any."
+  },
+  {
+    "subject": "general", 
+    "title": "", 
+    "oneliner": "", 
+    "setup": "I tried to sue the airline for losing my luggage.", 
+    "punchline": "I lost my case."
+  },
+  {
+    "subject": "general", 
+    "title": "", 
+    "oneliner": "", 
+    "setup": "Jill broke her finger today.", 
+    "punchline": "But on the other hand she was completely fine."
+  },
+  {
+    "subject": "general", 
+    "title": "", 
+    "oneliner": "", 
+    "setup": "When the past, present, and future go camping they always argue.", 
+    "punchline": "It's intense tense in tents!"
+  },
+  {
+    "subject": "general", 
+    "title": "", 
+    "oneliner": "", 
+    "setup": "Is it ignorance or apathy that's destroying the world today?", 
+    "punchline": "I don't know and don't really care."
+  },
+  {
+    "subject": "general", 
+    "title": "", 
+    "oneliner": "", 
+    "setup": "My dad, unfortunately, passed away when we couldn’t remember his blood type.", 
+    "punchline": "His last words to us were, 'Be positive!'"
+  },
+  {
+    "subject": "general", 
+    "title": "", 
+    "oneliner": "", 
+    "setup": "How does an attorney sleep?", 
+    "punchline": "First he lies on one side, then he lies on the other."
   }
 ]
