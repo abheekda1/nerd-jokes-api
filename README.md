@@ -10,7 +10,7 @@ To use it, just clone the repository and run either `go run main.go` for a quick
 ### Requesting jokes
 You can take a look at the endpoints in the `main.go` file, but here are the main ones: `/jokes/random`, `/jokes/random/{subject}`, `/jokes/{subject}` and `/jokes`. These only work with GET requests.
 
-## Adding jokes
+### Adding jokes
 You can send a POST request to the `/addJoke` endpoint with only the fields that have content (take a look at `jokes.json` for the format). For example, you can have
 ```
 {
