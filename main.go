@@ -7,118 +7,167 @@ import (
 	"log"
 	"math/rand"
 	"net/http"
+	"os"
+	"strings"
 	"time"
+
+	"github.com/gorilla/mux"
 )
 
 func Marshal(input interface{}) ([]byte, error) {
 	return json.Marshal(input)
 }
 
-func generalJokes(w http.ResponseWriter, r *http.Request) {
+func allJokes(w http.ResponseWriter, r *http.Request) {
 	jokesJSON, err := ioutil.ReadFile("static/jokes.json")
 	if err != nil {
 		fmt.Println(err)
+		return
 	}
-
-	type Type1 struct {
-		Title    string
-		Oneliner string
-	}
-
-	type Type2 struct {
-		Title     string
-		Setup     string
-		Punchline string
-	}
-
-	type General struct {
-		Type1 []Type1
-		Type2 []Type2
-	}
-
-	type Joke struct {
-		General General
-	}
-
-	type AllJokes struct {
-		Jokes Joke
-	}
-
-	var joke AllJokes
-	json.Unmarshal([]byte(jokesJSON), &joke)
-	jokeType := [2]string{"Type1", "Type2"}
-	jokeTypeIndex := jokeType[rand.Intn(2)]
-
-	if jokeTypeIndex == "Type1" {
-		index := rand.Intn(len(joke.Jokes.General.Type1))
-		randomJoke, _ := Marshal(joke.Jokes.General.Type1[index])
-		fmt.Fprintf(w, string(randomJoke))
-	}
-
-	if jokeTypeIndex == "Type2" {
-		index := rand.Intn(len(joke.Jokes.General.Type2))
-		randomJoke, _ := Marshal(joke.Jokes.General.Type2[index])
-		fmt.Fprintf(w, string(randomJoke))
-	}
-
-	fmt.Println("Endpoint Hit: General Jokes Page")
+	w.Header().Set("Content-Type", "application/json")
+	fmt.Fprintf(w, string(jokesJSON))
 }
 
-func scienceJokes(w http.ResponseWriter, r *http.Request) {
+func randomJoke(w http.ResponseWriter, r *http.Request) {
 	jokesJSON, err := ioutil.ReadFile("static/jokes.json")
 	if err != nil {
 		fmt.Println(err)
+		return
 	}
 
-	type Type1 struct {
-		Title    string
-		Oneliner string
+	type Joke struct {
+		Subject    string
+		isOneliner bool
+		Title      string
+		Oneliner   string
+		Setup      string
+		Punchline  string
 	}
 
-	type Type2 struct {
+	var joke []Joke
+	json.Unmarshal([]byte(jokesJSON), &joke)
+
+	w.Header().Set("Content-Type", "application/json")
+	json.NewEncoder(w).Encode(joke[rand.Intn(len(joke))])
+}
+
+func allJokesBySubject(w http.ResponseWriter, r *http.Request) {
+	vars := mux.Vars(r)
+	key := vars["subject"]
+
+	jokesJSON, err := ioutil.ReadFile("static/jokes.json")
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+
+	type Joke struct {
+		Subject    string
+		isOneliner bool
+		Title      string
+		Oneliner   string
+		Setup      string
+		Punchline  string
+	}
+
+	var joke []Joke
+	json.Unmarshal([]byte(jokesJSON), &joke)
+
+	var jokesBySubject []Joke
+
+	for _, subJoke := range joke {
+		if subJoke.Subject == key {
+			jokesBySubject = append(jokesBySubject, subJoke)
+		}
+	}
+	w.Header().Set("Content-Type", "application/json")
+	json.NewEncoder(w).Encode(jokesBySubject)
+}
+
+func randomJokeBySubject(w http.ResponseWriter, r *http.Request) {
+	vars := mux.Vars(r)
+	key := vars["subject"]
+
+	jokesJSON, err := ioutil.ReadFile("static/jokes.json")
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+
+	type Joke struct {
+		Subject    string
+		isOneliner bool
+		Title      string
+		Oneliner   string
+		Setup      string
+		Punchline  string
+	}
+
+	var joke []Joke
+	json.Unmarshal([]byte(jokesJSON), &joke)
+
+	var jokesBySubject []Joke
+
+	for _, subJoke := range joke {
+		if subJoke.Subject == key {
+			jokesBySubject = append(jokesBySubject, subJoke)
+		}
+	}
+	w.Header().Set("Content-Type", "application/json")
+	json.NewEncoder(w).Encode(jokesBySubject[rand.Intn(len(jokesBySubject))])
+}
+
+func addJoke(w http.ResponseWriter, r *http.Request) {
+	reqBody, _ := ioutil.ReadAll(r.Body)
+
+	jokesJSON, err := ioutil.ReadFile("static/jokes.json")
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+
+	type Joke struct {
+		APIKey    string
+		Subject   string
 		Title     string
+		Oneliner  string
 		Setup     string
 		Punchline string
 	}
 
-	type Science struct {
-		Type1 []Type1
-		Type2 []Type2
+	var joke Joke
+	json.Unmarshal(reqBody, &joke)
+
+	if joke.APIKey != os.Args[1] {
+		fmt.Fprintf(w, "Unauthorized")
+		return
 	}
 
-	type Joke struct {
-		Science Science
+	jokesJSONString := strings.TrimSuffix(strings.TrimSuffix(strings.TrimSuffix(string(jokesJSON), "\n"), "]"), "\n") + ",\n  " + fmt.Sprintf("{\n    \"subject\": \"%v\", \n    \"title\": \"%v\", \n    \"oneliner\": \"%v\", \n    \"setup\": \"%v\", \n    \"punchline\": \"%v\"\n  }\n]", joke.Subject, joke.Title, joke.Oneliner, joke.Setup, joke.Punchline)
+
+	os.Remove("static/jokes.json")
+
+	f, err := os.OpenFile("static/jokes.json", os.O_APPEND|os.O_WRONLY|os.O_CREATE, 0600)
+	if err != nil {
+		panic(err)
 	}
 
-	type AllJokes struct {
-		Jokes Joke
+	defer f.Close()
+
+	if _, err = f.WriteString(jokesJSONString); err != nil {
+		panic(err)
 	}
-
-	var joke AllJokes
-	json.Unmarshal([]byte(jokesJSON), &joke)
-	jokeType := [2]string{"Type1", "Type2"}
-	jokeTypeIndex := jokeType[rand.Intn(2)]
-
-	if jokeTypeIndex == "Type1" {
-		index := rand.Intn(len(joke.Jokes.Science.Type1))
-		randomJoke, _ := Marshal(joke.Jokes.Science.Type1[index])
-		fmt.Fprintf(w, string(randomJoke))
-	}
-
-	if jokeTypeIndex == "Type2" {
-		index := rand.Intn(len(joke.Jokes.Science.Type2))
-		randomJoke, _ := Marshal(joke.Jokes.Science.Type2[index])
-		fmt.Fprintf(w, string(randomJoke))
-	}
-
-	fmt.Println("Endpoint Hit: Science Jokes Page")
 }
 
 func handleRequests() {
-	http.Handle("/", http.FileServer(http.Dir("./static")))
-	http.HandleFunc("/jokes/random", generalJokes)
-	http.HandleFunc("/jokes/science/random", scienceJokes)
-	log.Fatal(http.ListenAndServe(":3587", nil))
+	router := mux.NewRouter().StrictSlash(true)
+	router.Handle("/", http.FileServer(http.Dir("./static")))
+	router.HandleFunc("/jokes", allJokes).Methods("GET")
+	router.HandleFunc("/jokes/random", randomJoke).Methods("GET")
+	router.HandleFunc("/jokes/{subject}", allJokesBySubject).Methods("GET")
+	router.HandleFunc("/jokes/random/{subject}", randomJokeBySubject).Methods("GET")
+	router.HandleFunc("/addJoke", addJoke).Methods("POST")
+	log.Fatal(http.ListenAndServe(":3587", router))
 }
 
 func main() {

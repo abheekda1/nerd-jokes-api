@@ -1,71 +1,397 @@
-{
-  "jokes": {
-    "general": {
-      "type1": [
-        {
-          "title": "",
-          "oneliner": "Yesterday, a clown held the door open for me. It was such a nice jester!"
-        },
-        {
-          "title": "",
-          "oneliner": "I asked my French friend if she likes to play video games. She said, \"Wii.\""
-        }
-      ],
-      "type2": [
-        {
-          "title": "",
-          "setup": "How much money does a pirate pay for corn?",
-          "punchline": "A buccaneer."
-        },
-        {
-          "title": "",
-          "setup": "Which country's capital has the fastest-growing population?",
-          "punchline": "Ireland. Every day it's Dublin."
-        }
-      ]
-    },
-    "science": {
-      "type1": [
-        {
-          "title": "",
-          "oneliner": "A science teacher tells his class, \"Oxygen is a must for breathing and life. It was discovered in 1773.\" A blonde student responds, \"Thank God I was born after 1773! Otherwise I would have died without it.\""
-        },
-        {
-          "title": "",
-          "oneliner": "I'm reading a book about helium. I just can't seem to put it down!"
-        },
-        {
-          "title": "",
-          "oneliner": "Math puns are the first sine of madness."
-        }
-      ],
-      "type2": [
-        {
-          "title": "",
-          "setup": " How do astronomers organize a party?",
-          "punchline": "They planet."
-        },
-        {
-          "title": "",
-          "setup": "Why can't you trust an atom?",
-          "punchline": "They make up everything!"
-        },
-        {
-          "title": "",
-          "setup": "Why don't ants get sick?",
-          "punchline": "Becuase they have little Anty Bodies!"
-        },
-        {
-          "title": "",
-          "setup": "What did one tectonic plate say when he bumped into another?",
-          "punchline": "Sorry! My Fault."
-        },
-        {
-          "title": "",
-          "setup": "How did the thermometer insult the graduated cylinder?",
-          "punchline": "She said, \"You may have graduated, but I have more degrees.\""
-        }
-      ]
-    }
+[
+  {
+    "subject": "general",
+    "isOneliner": true,
+    "title": "",
+    "oneliner": "Yesterday, a clown held the door open for me. It was such a nice jester!"
+  },
+  {
+    "subject": "general",
+    "isOneliner": true,
+    "title": "",
+    "oneliner": "I asked my French friend if she likes to play video games. She said, \"Wii.\""
+  },
+  {
+    "subject": "general",
+    "isOneliner": false,
+    "title": "",
+    "setup": "How much money does a pirate pay for corn?",
+    "punchline": "A buccaneer."
+  },
+  {
+    "subject": "general",
+    "isOneliner": false,
+    "title": "",
+    "setup": "Which country's capital has the fastest-growing population?",
+    "punchline": "Ireland. Every day it's Dublin."
+  },
+  {
+    "subject": "science",
+    "isOneliner": true,
+    "title": "",
+    "oneliner": "I'm reading a book about helium. I just can't seem to put it down!"
+  },
+  {
+    "subject": "science",
+    "isOneliner": true,
+    "title": "",
+    "oneliner": "Math puns are the first sine of madness."
+  },
+  {
+    "subject": "science",
+    "isOneliner": false,
+    "title": "",
+    "setup": " How do astronomers organize a party?",
+    "punchline": "They planet."
+  },
+  {
+    "subject": "science",
+    "isOneliner": false,
+    "title": "",
+    "setup": "Why can't you trust an atom?",
+    "punchline": "They make up everything!"
+  },
+  {
+    "subject": "science",
+    "isOneliner": false,
+    "title": "",
+    "setup": "Why don't ants get sick?",
+    "punchline": "Because they have little Anty Bodies!"
+  },
+  {
+    "subject": "science",
+    "isOneliner": false,
+    "title": "",
+    "setup": "What did one tectonic plate say when he bumped into another?",
+    "punchline": "Sorry! My Fault."
+  },
+  {
+    "subject": "science",
+    "isOneliner": false,
+    "title": "",
+    "setup": "How did the thermometer insult the graduated cylinder?",
+    "punchline": "She said, \"You may have graduated, but I have more degrees.\""
+  },
+  {
+    "subject": "science", 
+    "title": "", 
+    "oneliner": "Want to hear a joke about potassium? K.", 
+    "setup": "", 
+    "punchline": ""
+  },
+  {
+    "subject": "science", 
+    "title": "", 
+    "oneliner": "", 
+    "setup": "What do you do with a sick scientist?", 
+    "punchline": "Well if you can't helium and you can't curium then you might as well barium."
+  },
+  {
+    "subject": "science", 
+    "title": "", 
+    "oneliner": "", 
+    "setup": "Did you hear? Oxygen went on a date with potassium.", 
+    "punchline": "It went OK."
+  },
+  {
+    "subject": "science", 
+    "title": "", 
+    "oneliner": "If the Silver Surfer and Iron Man teamed up, they'd be alloys.", 
+    "setup": "", 
+    "punchline": ""
+  },
+  {
+    "subject": "science", 
+    "title": "", 
+    "oneliner": "The optimist sees the glass half full. The pessimist sees the glass half empty. The chemist sees the glass completely full, half with liquid and half with air.", 
+    "setup": "", 
+    "punchline": ""
+  },
+  {
+    "subject": "science", 
+    "title": "", 
+    "oneliner": "", 
+    "setup": "If you're not part of the solution,", 
+    "punchline": "you're part of the precipitate."
+  },
+  {
+    "subject": "science", 
+    "title": "", 
+    "oneliner": "", 
+    "setup": "A photon checks into a hotel and is asked if he needs any help with his luggage.", 
+    "punchline": "He says, \"No thanks, I'm traveling light.\""
+  },
+  {
+    "subject": "science", 
+    "title": "", 
+    "oneliner": "Organic chemistry is difficult. Those who study it have alkynes of trouble.", 
+    "setup": "", 
+    "punchline": ""
+  },
+  {
+    "subject": "science", 
+    "title": "", 
+    "oneliner": "", 
+    "setup": "Did you hear about the man who got cooled to absolute zero?", 
+    "punchline": "He's 0K now."
+  },
+  {
+    "subject": "science", 
+    "title": "", 
+    "oneliner": "I had to make these bad chemistry jokes because all the good ones Argon.", 
+    "setup": "", 
+    "punchline": ""
+  },
+  {
+    "subject": "science", 
+    "title": "", 
+    "oneliner": "Biology is the only science in which multiplication is the same thing as division.", 
+    "setup": "", 
+    "punchline": ""
+  },
+  {
+    "subject": "science", 
+    "title": "", 
+    "oneliner": "", 
+    "setup": "What did the stamen say to the pistil?", 
+    "punchline": "I like your style"
+  },
+  {
+    "subject": "general", 
+    "title": "", 
+    "oneliner": "", 
+    "setup": "What happens when you mess up at ninja church?", 
+    "punchline": "The nun chucks you out."
+  },
+  {
+    "subject": "general", 
+    "title": "", 
+    "oneliner": "", 
+    "setup": "What did Yoda say when he saw himself in 4K?", 
+    "punchline": "HDMI?"
+  },
+  {
+    "subject": "general", 
+    "title": "", 
+    "oneliner": "", 
+    "setup": "As I suspected, someone has been adding soil to my garden.", 
+    "punchline": "*The plot thickens.*"
+  },
+  {
+    "subject": "general", 
+    "title": "", 
+    "oneliner": "", 
+    "setup": "I dreamt last night that I was swimming in an ocean full of orange soda. Then I woke up...", 
+    "punchline": "..and realized it was just a Fanta sea."
+  },
+  {
+    "subject": "general", 
+    "title": "", 
+    "oneliner": "", 
+    "setup": "My friend claims that he “accidentally” glued himself to his autobiography, but I don’t believe him.", 
+    "punchline": "But that’s his story, and he’s sticking to it."
+  },
+  {
+    "subject": "general", 
+    "title": "", 
+    "oneliner": "", 
+    "setup": "Whats the leading cause of dry skin?", 
+    "punchline": "Towels"
+  },
+  {
+    "subject": "general", 
+    "title": "", 
+    "oneliner": "", 
+    "setup": "What’s the best thing about Switzerland?", 
+    "punchline": "I don't know, but the flag is a big plus."
+  },
+  {
+    "subject": "science", 
+    "title": "", 
+    "oneliner": "", 
+    "setup": "Did you hear about the mathematician who’s afraid of negative numbers?", 
+    "punchline": "He'll stop at nothing to avoid them."
+  },
+  {
+    "subject": "general", 
+    "title": "", 
+    "oneliner": "", 
+    "setup": "Why do we tell actors to 'break a leg'?", 
+    "punchline": "Because every play has a cast."
+  },
+  {
+    "subject": "science", 
+    "title": "It’s all beef to me", 
+    "oneliner": "", 
+    "setup": "Why does a burger have less energy than a steak?", 
+    "punchline": "Why does a burger have less energy than a steak?"
+  },
+  {
+    "subject": "general", 
+    "title": "", 
+    "oneliner": "‘I’m sorry’ and ‘I apologize’ mean the same thing. Except at a funeral.", 
+    "setup": "", 
+    "punchline": ""
+  },
+  {
+    "subject": "general", 
+    "title": "", 
+    "oneliner": "", 
+    "setup": "Why don’t cannibals eat clowns?", 
+    "punchline": "Because they taste funny."
+  },
+  {
+    "subject": "general", 
+    "title": "", 
+    "oneliner": "If at first you don’t succeed, then skydiving definitely isn’t for you.", 
+    "setup": "", 
+    "punchline": ""
+  },
+  {
+    "subject": "general", 
+    "title": "", 
+    "oneliner": "", 
+    "setup": "Why did Adele cross the road?", 
+    "punchline": "To say hello from the other side."
+  },
+  {
+    "subject": "general", 
+    "title": "", 
+    "oneliner": "", 
+    "setup": "To the guy who invented zero,", 
+    "punchline": "thanks for nothing"
+  },
+  {
+    "subject": "general", 
+    "title": "", 
+    "oneliner": "The Middle Ages were called the Dark Ages because there were too many knights.", 
+    "setup": "", 
+    "punchline": ""
+  },
+  {
+    "subject": "general", 
+    "title": "", 
+    "oneliner": "", 
+    "setup": "I can’t believe I got fired from the calendar factory.", 
+    "punchline": "All I did was take a day off!"
+  },
+  {
+    "subject": "general", 
+    "title": "", 
+    "oneliner": "", 
+    "setup": "England doesn't have a kidney bank.", 
+    "punchline": "But it does have a Liverpool."
+  },
+  {
+    "subject": "general", 
+    "title": "", 
+    "oneliner": "", 
+    "setup": "What are windmills’ favorite genre of music?", 
+    "punchline": "They’re big metal fans."
+  },
+  {
+    "subject": "general", 
+    "title": "", 
+    "oneliner": "", 
+    "setup": "The machine at the coin factory just suddenly stopped working.", 
+    "punchline": "It doesn't make any cents."
+  },
+  {
+    "subject": "general", 
+    "title": "", 
+    "oneliner": "", 
+    "setup": "I was going to make myself a belt made out of watches,", 
+    "punchline": "but I realized it was a waist of time."
+  },
+  {
+    "subject": "science", 
+    "title": "", 
+    "oneliner": "", 
+    "setup": "An atom loses an electron…", 
+    "punchline": "it says, 'Man, I really gotta keep an ion them.'"
+  },
+  {
+    "subject": "general", 
+    "title": "", 
+    "oneliner": "", 
+    "setup": "Light travels faster than sound.", 
+    "punchline": "That's why some people appear bright until you hear them speak."
+  },
+  {
+    "subject": "general", 
+    "title": "", 
+    "oneliner": "", 
+    "setup": "Light travels faster than sound.", 
+    "punchline": "'I have a split personality,' said Tom, being frank."
+  },
+  {
+    "subject": "general", 
+    "title": "", 
+    "oneliner": "", 
+    "setup": "How do you make holy water?", 
+    "punchline": "You boil the hell out of it."
+  },
+  {
+    "subject": "general", 
+    "title": "", 
+    "oneliner": "", 
+    "setup": "When life gives you melons,", 
+    "punchline": "you're dyslexic."
+  },
+  {
+    "subject": "general", 
+    "title": "", 
+    "oneliner": "", 
+    "setup": "Will glass coffins be a success?", 
+    "punchline": "Remains to be seen."
+  },
+  {
+    "subject": "general", 
+    "title": "", 
+    "oneliner": "", 
+    "setup": "I went to buy some camouflage trousers yesterday,", 
+    "punchline": "but couldn't find any."
+  },
+  {
+    "subject": "general", 
+    "title": "", 
+    "oneliner": "", 
+    "setup": "I tried to sue the airline for losing my luggage.", 
+    "punchline": "I lost my case."
+  },
+  {
+    "subject": "general", 
+    "title": "", 
+    "oneliner": "", 
+    "setup": "Jill broke her finger today.", 
+    "punchline": "But on the other hand she was completely fine."
+  },
+  {
+    "subject": "general", 
+    "title": "", 
+    "oneliner": "", 
+    "setup": "When the past, present, and future go camping they always argue.", 
+    "punchline": "It's intense tense in tents!"
+  },
+  {
+    "subject": "general", 
+    "title": "", 
+    "oneliner": "", 
+    "setup": "Is it ignorance or apathy that's destroying the world today?", 
+    "punchline": "I don't know and don't really care."
+  },
+  {
+    "subject": "general", 
+    "title": "", 
+    "oneliner": "", 
+    "setup": "My dad, unfortunately, passed away when we couldn’t remember his blood type.", 
+    "punchline": "His last words to us were, 'Be positive!'"
+  },
+  {
+    "subject": "general", 
+    "title": "", 
+    "oneliner": "", 
+    "setup": "How does an attorney sleep?", 
+    "punchline": "First he lies on one side, then he lies on the other."
   }
-}
+]
