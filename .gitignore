@@ -1,1 +1,8 @@
 main
+*.swp
+*~
+.DS_Store
+.eslintcache
+.vscode
+node_modules
+*.log
